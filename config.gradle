@@ -1,0 +1,28 @@
+ext {
+    android = [
+            compileSdkVersion    : 25,
+            applicationId        : "com.seabig.moduledemo",
+            buildToolsVersion    : "25.0.2",
+            minSdkVersion        : 17,
+            targetSdkVersion     : 25,
+            versionCode          : 1,
+            versionName          : "1.0.1",
+            appName              : "YPDQ",
+            androidSupportVersion: "25.3.1",
+            swipeToLoadVersion   : "1.0.4",
+            gsonVersion          : "2.2.4",
+            butterknifeVersion   : "8.5.1",
+            arouter_compiler     : "1.1.4",
+            arouter_api          : "1.3.1",
+            multidex             : "1.0.0"
+    ]
+
+    dependencies = [
+            "appcompat-v7"    : "com.android.support:appcompat-v7:${android["androidSupportVersion"]}",
+            "design"          : "com.android.support:design:${android["androidSupportVersion"]}",
+            "swipe"           : "com.github.Aspsine:SwipeToLoadLayout:${android["swipeToLoadVersion"]}",
+            "arouter_api"     : "com.alibaba:arouter-api:${android["arouter_api"]}",
+            "arouter_compiler": "com.alibaba:arouter-compiler:${android["arouter_compiler"]}",
+            "multidex"        : "com.android.support:multidex:${android["multidex"]}"
+    ]
+}
