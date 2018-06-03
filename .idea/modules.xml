@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudy.iml" filepath="$PROJECT_DIR$/AndroidStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apt-annotation/apt-annotation.iml" filepath="$PROJECT_DIR$/apt-annotation/apt-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apt-excute/apt-excute.iml" filepath="$PROJECT_DIR$/apt-excute/apt-excute.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apt-processor/apt-processor.iml" filepath="$PROJECT_DIR$/apt-processor/apt-processor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_ble/module_ble.iml" filepath="$PROJECT_DIR$/module_ble/module_ble.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_one/module_one.iml" filepath="$PROJECT_DIR$/module_one/module_one.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_widget/module_widget.iml" filepath="$PROJECT_DIR$/module_widget/module_widget.iml" />
+    </modules>
+  </component>
+</project>

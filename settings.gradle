@@ -1,1 +1,1 @@
-include ':app', ':module_one', ':lib_common', ':module_two', ':apt-annotation', ':apt-processor', ':apt-excute', ':module_ble'
+include ':app', ':module_one', ':lib_common', ':module_widget', ':apt-annotation', ':apt-processor', ':apt-excute', ':module_ble'

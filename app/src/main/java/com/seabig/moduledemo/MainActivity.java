@@ -13,7 +13,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.seabig.annotation.anno.BindView;
 import com.seabig.apt_library.BindViewTools;
 import com.seabig.moduledemo.one.activity.OneActivity;
-import com.seabig.moduledemo.two.activity.ScreenSlideActivity;
+import com.seabig.moduledemo.widget.ui.activity.ScreenSlideActivity;
 
 /**
  * @author AirBike-Work2
