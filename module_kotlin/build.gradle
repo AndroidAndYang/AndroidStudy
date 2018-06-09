@@ -11,6 +11,7 @@ android {
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     defaultConfig {
+
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
@@ -25,12 +26,12 @@ android {
         }
     }
 
-    // 判断在组件化的情况下设置不痛的AndroidManifest.xml文件
-    sourceSets {
-        main {
-            if (isModule.toBoolean()) {
+    // 判断在组件化的情况下设置不同的AndroidManifest.xml文件
+    sourceSets{
+        main{
+            if (isModule.toBoolean()){
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
-            } else {
+            }else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }
         }
@@ -47,8 +48,4 @@ android {
 dependencies {
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     compile project(':lib_common')
-    // apt
-    compile project(':apt-annotation')
-    compile project(':apt-excute')
-    annotationProcessor project(':apt-processor')
 }

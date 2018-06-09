@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/apt-processor" />
             <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/module_ble" />
+            <option value="$PROJECT_DIR$/module_kotlin" />
             <option value="$PROJECT_DIR$/module_one" />
             <option value="$PROJECT_DIR$/module_widget" />
           </set>

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.seabig.moduledemo.widget">
+    package="com.seabig.moduledemo.kotlin" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.activity.MainActivity">
+            android:name=".MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,14 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.ARouterActivity"/>
-
-        <activity android:name=".ui.activity.ScreenSlideActivity"/>
-
-        <activity android:name=".ui.activity.EchelonActivity"/>
-
-        <activity android:name=".ui.activity.MaterDesignActivity"/>
-
     </application>
+
 
 </manifest>

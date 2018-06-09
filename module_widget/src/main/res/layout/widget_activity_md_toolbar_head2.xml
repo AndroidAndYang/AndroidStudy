@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:id="@+id/v_collapse_mask"
+    android:background="#0000ff">
+
+    <ImageView
+        android:id="@+id/img_shaomiao"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_text"/>
+
+    <ImageView
+        android:id="@+id/img_fukuang"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/img_shaomiao"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_4column"/>
+
+    <ImageView
+        android:id="@+id/img_search"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/img_fukuang"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_search"/>
+
+    <ImageView
+        android:id="@+id/img_zhaoxiang"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_video"/>
+
+</RelativeLayout>

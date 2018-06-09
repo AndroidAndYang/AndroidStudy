@@ -27,6 +27,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.one_btn).setOnClickListener(this);
         findViewById(R.id.two_btn).setOnClickListener(this);
         findViewById(R.id.three_btn).setOnClickListener(this);
+        findViewById(R.id.four_btn).setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +44,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.three_btn:
                 startActivity(ARouterActivity.class);
+                break;
+
+            case R.id.four_btn:
+                startActivity(MaterDesignActivity.class);
                 break;
 
             default:

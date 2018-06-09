@@ -78,12 +78,9 @@ dependencies {
     // 只有是library的情况下才添加
     if (!isModule.toBoolean()) {
         compile project(':module_one')
-        compile project(':module_two')
+        compile project(':module_widget')
     }
-    // apt
-    compile project(':apt-annotation')
-    compile project(':apt-excute')
-    annotationProcessor project(':apt-processor')
     // firebase
     compile 'com.google.firebase:firebase-core:10.0.1'
+    annotationProcessor project(':apt-processor')
 }

@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/apt-processor/apt-processor.iml" filepath="$PROJECT_DIR$/apt-processor/apt-processor.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_ble/module_ble.iml" filepath="$PROJECT_DIR$/module_ble/module_ble.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_kotlin/module_kotlin.iml" filepath="$PROJECT_DIR$/module_kotlin/module_kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_one/module_one.iml" filepath="$PROJECT_DIR$/module_one/module_one.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_widget/module_widget.iml" filepath="$PROJECT_DIR$/module_widget/module_widget.iml" />
     </modules>

@@ -23,6 +23,7 @@ ext {
             "swipe"           : "com.github.Aspsine:SwipeToLoadLayout:${android["swipeToLoadVersion"]}",
             "arouter_api"     : "com.alibaba:arouter-api:${android["arouter_api"]}",
             "arouter_compiler": "com.alibaba:arouter-compiler:${android["arouter_compiler"]}",
-            "multidex"        : "com.android.support:multidex:${android["multidex"]}"
+            "multidex"        : "com.android.support:multidex:${android["multidex"]}",
+            "recyclerview"        : "com.android.support:recyclerview-v7:${android["androidSupportVersion"]}"
     ]
 }
