@@ -11,7 +11,7 @@
 
         <activity android:name=".ui.activity.ScreenSlideActivity" />
 
-        <activity android:name=".ui.activity.MainActivity"/>
+        <activity android:name=".ui.activity.WidgetHomeActivity"/>
 
         <activity android:name=".ui.activity.EchelonActivity"/>
 

@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.seabig.moduledemo.widget">
+    package="com.seabig.moduledemo.ble" >
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
@@ -8,22 +11,17 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.activity.WidgetHomeActivity">
+            android:name="com.seabig.moduledemo.sys.ui.UsbActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
 
-        <activity android:name=".ui.activity.ARouterActivity"/>
-
-        <activity android:name=".ui.activity.ScreenSlideActivity"/>
-
-        <activity android:name=".ui.activity.EchelonActivity"/>
-
-        <activity android:name=".ui.activity.MaterDesignActivity"/>
+        <activity android:name="com.seabig.moduledemo.sys.ui.BleActivity"/>
 
     </application>
 
