@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        电脑电脑设备管理器，Android Phone 查看详细信息，属性选择硬件ID.
+    -->
+    <usb-device
+        vendor-id="2207"
+        product-id="0010"/>
+
+    <!--<usb-device  vendor-id="6790" product-id="29987"/>-->
+
+    <!--<usb-device-->
+        <!--product-id="8711"-->
+        <!--vendor-id="16"-->
+        <!--mi="1"/>-->
+
+</resources>
