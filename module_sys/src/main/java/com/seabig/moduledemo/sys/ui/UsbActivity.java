@@ -20,13 +20,15 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;
 import com.seabig.moduledemo.ble.R;
+import com.seabig.moduledemo.common.util.LogUtils;
 import com.seabig.moduledemo.common.util.StringUtils;
 import com.seabig.moduledemo.sys.listener.IAudioListen;
-import com.seabig.moduledemo.sys.util.AudioRecordUtil;
+import com.seabig.moduledemo.sys.util.MediaRecorderUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,17 +41,15 @@ import java.util.Locale;
  * date:  2018/6/20
  * des: usb转串口
  */
-
+@Route(path = "/sys/activity/usb")
 public class UsbActivity extends AppCompatActivity implements View.OnClickListener, IAudioListen, SeekBar.OnSeekBarChangeListener {
 
-    private UsbEndpoint usbEndpointIn;
-    private UsbEndpoint usbEndpointOut;
-
-    private List<UsbDevice> usbDevicesList = new ArrayList<>();
     private UsbManager usbManager;
     private UsbSerialPort serialPort;
     private TextView textView;
     private TextView seekBarValue;
+    private List<UsbSerialDriver> drivers;
+    private MediaRecorderUtil mediaRecorderUtil;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,27 +59,25 @@ public class UsbActivity extends AppCompatActivity implements View.OnClickListen
 
         initView();
 
-        initDevice();
+        initUsbSerial();
     }
 
-    private void initDevice() {
+    private void initUsbSerial() {
 
         // 1.查找设备
         usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
 
-        usbDevicesList.addAll(usbManager.getDeviceList().values());
+        drivers = UsbSerialProber.getDefaultProber().findAllDrivers(usbManager);
 
-        if (usbDevicesList.size() <= 0) {
+        if (drivers.size() <= 0) {
             Toast.makeText(this, "无串口设备", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        UsbDevice device = usbDevicesList.get(0);
+        UsbDevice device = drivers.get(0).getDevice();
 
         if (usbManager.hasPermission(device)) {
-
             permissionAllow(device);
-
         } else {
             Log.e("TAG", "没有权限");
             UsbPermissionActionReceiver mUsbPermissionActionReceiver = new UsbPermissionActionReceiver();
@@ -89,13 +87,12 @@ public class UsbActivity extends AppCompatActivity implements View.OnClickListen
             registerReceiver(mUsbPermissionActionReceiver, intentFilter);
             usbManager.requestPermission(device, pendingIntent);
         }
+
     }
 
     private void permissionAllow(UsbDevice device) {
 
-        final List<UsbSerialDriver> drivers = UsbSerialProber.getDefaultProber().findAllDrivers(usbManager);
-
-        final List<UsbSerialPort> result = new ArrayList<>();
+        List<UsbSerialPort> result = new ArrayList<>();
 
         for (final UsbSerialDriver driver : drivers) {
             final List<UsbSerialPort> ports = driver.getPorts();
@@ -124,20 +121,15 @@ public class UsbActivity extends AppCompatActivity implements View.OnClickListen
             UsbEndpoint endpoint = anInterface.getEndpoint(i);
             if (endpoint.getType() == UsbConstants.USB_ENDPOINT_XFER_BULK) {
                 if (endpoint.getDirection() == UsbConstants.USB_DIR_IN) {
-                    usbEndpointIn = endpoint;
+                    // 输入端口
+                    // UsbEndpoint usbEndpointIn = endpoint;
+                    LogUtils.e("输入端口");
                 } else if (endpoint.getDirection() == UsbConstants.USB_DIR_OUT) {
-                    usbEndpointOut = endpoint;
+                    // 输出端口
+                    // UsbEndpoint usbEndpointOut = endpoint;
+                    LogUtils.e("输出端口");
                 }
             }
-        }
-
-        try {
-            Log.e("TAG", "usbEndpointIn = " + usbEndpointIn.toString());
-            Log.e("TAG", "usbEndpointOut = " + usbEndpointOut.toString());
-            Log.e("TAG", "usbDeviceConnection = " + usbDeviceConnection.toString());
-            Log.e("TAG", "serialPort = " + serialPort.toString());
-        } catch (Exception e) {
-            Log.e("TAG", " e = " + e.getMessage());
         }
     }
 
@@ -158,16 +150,14 @@ public class UsbActivity extends AppCompatActivity implements View.OnClickListen
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                textView.setText(StringUtils.buffer("分贝：" ,String.valueOf(volume)));
+                textView.setText(StringUtils.buffer("分贝：", String.valueOf(volume)));
             }
         });
-
-        Log.e("TAG", "volume = " + volume);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        AudioRecordUtil.MAX_VOLUME = progress;
+        MediaRecorderUtil.MAX_VOLUME = progress;
         seekBarValue.setText(String.format(Locale.CHINA, "阀值：%s", progress));
     }
 
@@ -216,33 +206,41 @@ public class UsbActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            // 參考Rs485协议使用说明
-            case R.id.study_code:
-                studyCode();
-                break;
+        int i = v.getId();
+        if (i == R.id.study_code) {
+            studyCode();
 
-            case R.id.top:
-                topTurn();
-                break;
+        } else if (i == R.id.top) {
+            topTurn();
 
-            case R.id.pause:
-                pauseTurn();
-                break;
+        } else if (i == R.id.pause) {
+            pauseTurn();
 
-            case R.id.bottom:
-                bottomTurn();
-                break;
+        } else if (i == R.id.bottom) {
+            bottomTurn();
 
-            case R.id.start_audio:
-                AudioRecordUtil demo = new AudioRecordUtil();
-                demo.setAudioRecordListener(this);
-                demo.getNoiseLevel();
-                break;
+        } else if (i == R.id.start_audio) {
+//                AudioRecordDemo demo = new AudioRecordDemo();
+//                demo.setAudioRecordListener(this);
+//                demo.getNoiseLevel();
 
-            case R.id.stop_audio:
-                AudioRecordUtil.isGetVoiceRun = false;
-                break;
+            mediaRecorderUtil = new MediaRecorderUtil();
+            mediaRecorderUtil.setListen(this);
+            if (MediaRecorderUtil.isGetVoiceRun) {
+                Toast.makeText(UsbActivity.this, "已经在监听了", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            MediaRecorderUtil.isGetVoiceRun = true;
+            mediaRecorderUtil.startRecord();
+
+
+        } else if (i == R.id.stop_audio) {//  AudioRecordDemo.isGetVoiceRun = false;
+            if (!MediaRecorderUtil.isGetVoiceRun) {
+                Toast.makeText(UsbActivity.this, "请先打开监听", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            mediaRecorderUtil.stop();
+
         }
     }
 
@@ -298,12 +296,7 @@ public class UsbActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onPause() {
         super.onPause();
-        AudioRecordUtil.isGetVoiceRun = false;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        AudioRecordUtil.isGetVoiceRun = false;
+        // AudioRecordUtil.isGetVoiceRun = false;
+        mediaRecorderUtil.stop();
     }
 }

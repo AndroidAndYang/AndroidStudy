@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/navigation_item_camera"
+            android:title="@string/camera" />
+
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/navigation_item_album"
+            android:title="@string/album" />
+
+
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/navigation_item_tools"
+            android:title="Tools" />
+
+        <item
+            android:id="@+id/nav_scan"
+            android:icon="@drawable/navigation_item_scan"
+            android:title="@string/scan" />
+
+    </group>
+
+    <item android:title="Contact me">
+
+        <menu>
+            <item
+                android:id="@+id/nav_csdn"
+                android:icon="@drawable/navigation_item_csdn"
+                android:title="@string/csdn" />
+            <item
+                android:id="@+id/nav_githup"
+                android:icon="@drawable/navigation_item_github"
+                android:title="@string/githup" />
+        </menu>
+
+    </item>
+
+</menu>

@@ -17,9 +17,16 @@ android {
         // ARouter
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
+
+        kapt {
+            arguments {
+                arg("moduleNmae", project.getName())
+            }
+        }
+
     }
 
     buildTypes {
@@ -50,6 +57,7 @@ dependencies {
     // design
     compile rootProject.ext.dependencies["design"]
     // ARouter
+    kapt rootProject.ext.dependencies["arouter_compiler"]
     compile rootProject.ext.dependencies["arouter_api"]
     // 图片加载
     compile 'com.github.bumptech.glide:glide:3.7.0'

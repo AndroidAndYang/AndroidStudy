@@ -64,12 +64,6 @@ android {
             signingConfig signingConfigs.config
         }
     }
-
-    // 修改GBK编码为UTF-8
-    tasks.withType(JavaCompile) {
-        options.encoding = "UTF-8"
-    }
-
 }
 
 dependencies {
@@ -82,7 +76,7 @@ dependencies {
     compile rootProject.ext.dependencies["multidex"]
     // 只有是library的情况下才添加
     if (!isModule.toBoolean()) {
-        compile project(':module_one')
+        compile project(':module_home')
         compile project(':module_widget')
         compile project(':module_sys')
     }

@@ -81,7 +81,7 @@ public class ClassUtils {
         catch (Exception e)
         {
             e.getStackTrace();
-            Log.e(TAG, "getObjectsWithInterface error, " + e.getMessage());
+            Log.e(TAG, "getObjectsWithInterface loading_error, " + e.getMessage());
         }
 
         return objectList;
@@ -125,7 +125,7 @@ public class ClassUtils {
         catch (Exception e)
         {
             e.getStackTrace();
-            Log.e(TAG, "getObjectsWithInterface error, " + e.getMessage());
+            Log.e(TAG, "getObjectsWithInterface loading_error, " + e.getMessage());
         }
 
         return objectList;
@@ -150,7 +150,7 @@ public class ClassUtils {
             {
                 if (path.endsWith(EXTRACTED_SUFFIX))
                 {
-                    //NOT use new DexFile(path), because it will throw "permission error in /data/dalvik-cache"
+                    //NOT use new DexFile(path), because it will throw "permission loading_error in /data/dalvik-cache"
                     dexfile = DexFile.loadDex(path, path + ".tmp", 0);
                 } else
                 {
@@ -168,7 +168,7 @@ public class ClassUtils {
             }
             catch (Throwable ignore)
             {
-                Log.e(TAG, "Scan map file in dex files made error.", ignore);
+                Log.e(TAG, "Scan map file in dex files made loading_error.", ignore);
             }
             finally
             {
@@ -279,7 +279,7 @@ public class ClassUtils {
             }
             catch (Exception e)
             {
-                Log.e(TAG, "InstantRun support error, " + e.getMessage());
+                Log.e(TAG, "InstantRun support loading_error, " + e.getMessage());
             }
         }
 

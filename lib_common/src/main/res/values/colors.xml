@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#37b97d</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#37b97d</color>
 
-    <color name="status_bar_color">#3F51B5</color>
-    <color name="main">#3F51B5</color>
+    <color name="status_bar_color">#37b97d</color>
+    <!-- App 主顏色 -->
+    <color name="main">#37b97d</color>
+    <color name="orange">#efb331</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#888888</color>
+
+    <!-- 主文字颜色 -->
+    <color name="main_text_color">#232326</color>
+    <!-- 页面为空颜色 -->
+    <color name="page_empty_color">#909090</color>
+    <!-- 次文字颜色 -->
+    <color name="text_color">#686868</color>
 
     <color name="transparent">#00000000</color>
 

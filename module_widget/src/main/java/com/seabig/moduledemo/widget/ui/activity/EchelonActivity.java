@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.seabig.moduledemo.common.base.BaseActivity;
 import com.seabig.moduledemo.common.base.BaseRecyclerAdapter;
-import com.seabig.moduledemo.common.widget.layoutmanager.EchelonLayoutManager;
+import com.seabig.moduledemo.common.ui.widget.layoutmanager.EchelonLayoutManager;
 import com.seabig.moduledemo.widget.R;
 import com.seabig.moduledemo.widget.adapter.EchelonAdapter;
 import com.seabig.moduledemo.widget.bean.EchelonBean;

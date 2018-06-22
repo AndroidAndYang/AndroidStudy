@@ -10,7 +10,9 @@ import com.seabig.moduledemo.sys.listener.IAudioListen;
 /**
  * author： YJZ
  * date:  2018/6/16
- * des:
+ * des: 获取声音分贝大小 MediaRecorder(基于文件录音)，AudioRecord(基于字节流录音)
+        优点：可以实现语音的实时处理，进行边录边播，对音频的实时处理。
+        缺点：输出的是PCM的语音数据，如果保存成音频文件是不能被播放器播放的。要用到AudioTrack这个去进行处理。
  */
 
 public class AudioRecordUtil {

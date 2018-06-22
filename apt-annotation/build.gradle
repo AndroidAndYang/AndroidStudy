@@ -1,5 +1,10 @@
 apply plugin: 'java'
 
+// 修改GBK编码为UTF-8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

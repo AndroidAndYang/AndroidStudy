@@ -8,8 +8,8 @@
       <module fileurl="file://$PROJECT_DIR$/apt-excute/apt-excute.iml" filepath="$PROJECT_DIR$/apt-excute/apt-excute.iml" />
       <module fileurl="file://$PROJECT_DIR$/apt-processor/apt-processor.iml" filepath="$PROJECT_DIR$/apt-processor/apt-processor.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_home/module_home.iml" filepath="$PROJECT_DIR$/module_home/module_home.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_kotlin/module_kotlin.iml" filepath="$PROJECT_DIR$/module_kotlin/module_kotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_one/module_one.iml" filepath="$PROJECT_DIR$/module_one/module_one.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_sys/module_sys.iml" filepath="$PROJECT_DIR$/module_sys/module_sys.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_widget/module_widget.iml" filepath="$PROJECT_DIR$/module_widget/module_widget.iml" />
     </modules>
