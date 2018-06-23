@@ -32,13 +32,9 @@
 
         <menu>
             <item
-                android:id="@+id/nav_csdn"
-                android:icon="@drawable/navigation_item_csdn"
-                android:title="@string/csdn" />
-            <item
-                android:id="@+id/nav_githup"
-                android:icon="@drawable/navigation_item_github"
-                android:title="@string/githup" />
+                android:id="@+id/about"
+                android:icon="@drawable/navigation_item_about"
+                android:title="@string/about" />
         </menu>
 
     </item>

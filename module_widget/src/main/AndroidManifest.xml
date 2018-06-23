@@ -7,11 +7,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.activity.ARouterActivity" />
-
         <activity android:name=".ui.activity.ScreenSlideActivity" />
-
-        <activity android:name=".ui.activity.WidgetHomeActivity"/>
 
         <activity android:name=".ui.activity.EchelonActivity"/>
 

@@ -18,8 +18,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.RouterActivity"/>
-
+        <!-- 关于 -->
+        <activity android:name=".activity.AboutActivity"/>
+        <!-- 开发源代码许可 -->
+        <activity android:name=".activity.LicenseActivity"/>
     </application>
 
 </manifest>

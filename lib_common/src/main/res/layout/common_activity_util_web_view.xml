@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/lib_toolbar" />
+    <include layout="@layout/common_lib_toolbar" />
 
     <com.seabig.moduledemo.common.ui.widget.LoadingLayout
         android:id="@+id/loading_layout"

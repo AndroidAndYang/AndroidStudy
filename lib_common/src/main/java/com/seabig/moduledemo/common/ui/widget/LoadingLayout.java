@@ -126,10 +126,10 @@ public class LoadingLayout extends FrameLayout {
         {
             loadingPage = mConfig.loadingView;
         }
-        errorPage = LayoutInflater.from(mContext).inflate(R.layout.loading_widget_error_page, null);
-        emptyPage = LayoutInflater.from(mContext).inflate(R.layout.loading_widget_empty_page, null);
-        networkPage = LayoutInflater.from(mContext).inflate(R.layout.loaidng_widget_no_network_page, null);
-        noLoginPage = LayoutInflater.from(mContext).inflate(R.layout.loading_widget_no_login_page, null);
+        errorPage = LayoutInflater.from(mContext).inflate(R.layout.commont_loading_widget_error_page, null);
+        emptyPage = LayoutInflater.from(mContext).inflate(R.layout.common_loading_widget_empty_page, null);
+        networkPage = LayoutInflater.from(mContext).inflate(R.layout.commont_loaidng_widget_no_network_page, null);
+        noLoginPage = LayoutInflater.from(mContext).inflate(R.layout.commont_loading_widget_no_login_page, null);
         defineLoadingPage = null;
 
         loadingPage.setBackgroundColor(getColor(mContext, mConfig.backgroundColor));
@@ -653,10 +653,10 @@ public class LoadingLayout extends FrameLayout {
         String reloadBtnStr = "点击重试";
         String noLoginStr = "您还未登录，请先登录";
         String noLoginBtnStr = "点击登录";
-        int emptyImgId = R.drawable.loaing_empty;
-        int errorImgId = R.drawable.loading_error;
-        int networkImgId = R.drawable.loading_no_network;
-        int noLoginImgId = R.drawable.laoding_define_error;
+        int emptyImgId = R.drawable.commont_loading_empty;
+        int errorImgId = R.drawable.commont_loading_error;
+        int networkImgId = R.drawable.commont_loading_no_network;
+        int noLoginImgId = R.drawable.commont_laoding_define_error;
         int reloadBtnId = R.drawable.reload_btn_selector;
         int tipTextSize = 14;
         int buttonTextSize = 14;
@@ -664,7 +664,7 @@ public class LoadingLayout extends FrameLayout {
         int buttonTextColor = R.color.page_empty_color;
         int buttonWidth = -1;
         int buttonHeight = -1;
-        int loadingLayoutId = R.layout.loading_widget_loading_page;
+        int loadingLayoutId = R.layout.commont_loading_widget_loading_page;
         View loadingView = null;
         int backgroundColor = R.color.white;
 

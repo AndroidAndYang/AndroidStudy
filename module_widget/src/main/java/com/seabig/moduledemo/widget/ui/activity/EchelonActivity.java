@@ -5,10 +5,10 @@ import android.view.View;
 
 import com.seabig.moduledemo.common.base.BaseActivity;
 import com.seabig.moduledemo.common.base.BaseRecyclerAdapter;
-import com.seabig.moduledemo.common.ui.widget.layoutmanager.EchelonLayoutManager;
 import com.seabig.moduledemo.widget.R;
 import com.seabig.moduledemo.widget.adapter.EchelonAdapter;
 import com.seabig.moduledemo.widget.bean.EchelonBean;
+import com.seabig.moduledemo.widget.ui.widget.recyclermgr.EchelonLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +22,12 @@ import java.util.List;
 public class EchelonActivity extends BaseActivity {
 
     @Override
-    protected int onSettingUpContentViewResourceID()
-    {
+    protected int onSettingUpContentViewResourceID() {
         return R.layout.widget_activity_echelon;
     }
 
     @Override
-    protected void onSettingUpView()
-    {
+    protected void onSettingUpView() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.two_recycler_view);
         recyclerView.setLayoutManager(new EchelonLayoutManager());
         List<EchelonBean> echelonBeanList = new ArrayList<>();
@@ -46,8 +44,7 @@ public class EchelonActivity extends BaseActivity {
                 "只想优雅转身，不料华丽撞墙"
         };
 
-        for (int i = 0; i < 8; i++)
-        {
+        for (int i = 0; i < 8; i++) {
             EchelonBean echelonBean = new EchelonBean();
             echelonBean.setBg(bgs[i % 4]);
             echelonBean.setDes(descs[i % 5]);
@@ -59,8 +56,7 @@ public class EchelonActivity extends BaseActivity {
         EchelonAdapter echelonAdapter = new EchelonAdapter(this, echelonBeanList);
         echelonAdapter.setOnRecyclerViewItemClickListen(new BaseRecyclerAdapter.OnRecyclerViewItemClickListen() {
             @Override
-            public void onItemClickListen(View view, int position)
-            {
+            public void onItemClickListen(View view, int position) {
                 showToast("position = " + position);
             }
         });

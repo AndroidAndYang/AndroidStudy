@@ -1,4 +1,4 @@
-package com.seabig.moduledemo.common.ui.widget.layoutmanager;
+package com.seabig.moduledemo.widget.ui.widget.recyclermgr;
 
 public class ItemViewInfo {
     private float mScaleXY;

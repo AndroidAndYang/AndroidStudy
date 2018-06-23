@@ -65,4 +65,5 @@ dependencies {
     // apt
     compile project(':apt-annotation')
     compile project(':apt-excute')
+    compile project(':lib_permission')
 }

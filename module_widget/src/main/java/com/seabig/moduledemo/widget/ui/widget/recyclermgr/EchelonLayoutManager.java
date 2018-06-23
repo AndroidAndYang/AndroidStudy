@@ -1,4 +1,4 @@
-package com.seabig.moduledemo.common.ui.widget.layoutmanager;
+package com.seabig.moduledemo.widget.ui.widget.recyclermgr;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -19,17 +19,14 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
     private int mScrollOffset = Integer.MAX_VALUE;
 
     @Override
-    public RecyclerView.LayoutParams generateDefaultLayoutParams()
-    {
+    public RecyclerView.LayoutParams generateDefaultLayoutParams() {
         return new RecyclerView.LayoutParams(RecyclerView.LayoutParams.WRAP_CONTENT, RecyclerView.LayoutParams.WRAP_CONTENT);
     }
 
     @Override
-    public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state)
-    {
+    public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
         super.onLayoutChildren(recycler, state);
-        if (state.getItemCount() == 0 || state.isPreLayout())
-        {
+        if (state.getItemCount() == 0 || state.isPreLayout()) {
             return;
         }
         removeAndRecycleAllViews(recycler);
@@ -41,10 +38,8 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
         layoutChild(recycler);
     }
 
-    private void layoutChild(RecyclerView.Recycler recycler)
-    {
-        if (getItemCount() == 0)
-        {
+    private void layoutChild(RecyclerView.Recycler recycler) {
+        if (getItemCount() == 0) {
             return;
         }
         //获取到最后一个Item的位置
@@ -57,8 +52,7 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
         final float offsetPercentRelativeToItemView = bottomItemVisibleHeight * 1.0f / mItemViewHeight;
         //把我们需要的Item添加到这个集合
         ArrayList<ItemViewInfo> layoutInfos = new ArrayList<>();
-        for (int i = bottomItemPosition - 1, j = 1; i >= 0; i--, j++)
-        {
+        for (int i = bottomItemPosition - 1, j = 1; i >= 0; i--, j++) {
             //计算偏移量
             double maxOffset = (getVerticalSpace() - mItemViewHeight) / 2 * Math.pow(0.8, j);
             //这个Item的top值
@@ -73,8 +67,7 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
             layoutInfos.add(0, info);
             remainSpace = (int) (remainSpace - maxOffset);
             //在添加Item的同时，计算剩余空间是否可以容下下一个Item，如果不能的话，就不再添加了
-            if (remainSpace <= 0)
-            {
+            if (remainSpace <= 0) {
                 info.setTop((int) (remainSpace + maxOffset));
                 info.setPositionOffset(0);
                 info.setLayoutPercent(info.getTop() / getVerticalSpace());
@@ -82,13 +75,11 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
                 break;
             }
         }
-        if (bottomItemPosition < mItemCount)
-        {
+        if (bottomItemPosition < mItemCount) {
             final int start = getVerticalSpace() - bottomItemVisibleHeight;
             layoutInfos.add(new ItemViewInfo(start, 1.0f, bottomItemVisibleHeight * 1.0f / mItemViewHeight, start * 1.0f / getVerticalSpace())
                     .setIsBottom());
-        } else
-        {
+        } else {
             bottomItemPosition = bottomItemPosition - 1;
         }
         //这里做的是回收处理
@@ -96,19 +87,16 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
         final int startPos = bottomItemPosition - (layoutCount - 1);
         final int endPos = bottomItemPosition;
         final int childCount = getChildCount();
-        for (int i = childCount - 1; i >= 0; i--)
-        {
+        for (int i = childCount - 1; i >= 0; i--) {
             View childView = getChildAt(i);
             int pos = getPosition(childView);
-            if (pos > endPos || pos < startPos)
-            {
+            if (pos > endPos || pos < startPos) {
                 removeAndRecycleView(childView, recycler);
             }
         }
         detachAndScrapAttachedViews(recycler);
         //这里主要是对需要显示的Item进行排列以及缩放
-        for (int i = 0; i < layoutCount; i++)
-        {
+        for (int i = 0; i < layoutCount; i++) {
             View view = recycler.getViewForPosition(startPos + i);
             ItemViewInfo layoutInfo = layoutInfos.get(i);
             addView(view);
@@ -125,8 +113,7 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
     /**
      * 测量itemView的确切大小
      */
-    private void measureChildWithExactlySize(View child)
-    {
+    private void measureChildWithExactlySize(View child) {
         final int widthSpec = View.MeasureSpec.makeMeasureSpec(mItemViewWidth, View.MeasureSpec.EXACTLY);
         final int heightSpec = View.MeasureSpec.makeMeasureSpec(mItemViewHeight, View.MeasureSpec.EXACTLY);
         child.measure(widthSpec, heightSpec);
@@ -135,22 +122,19 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
     /**
      * 获取RecyclerView的显示高度
      */
-    private int getVerticalSpace()
-    {
+    private int getVerticalSpace() {
         return getHeight() - getPaddingTop() - getPaddingBottom();
     }
 
     /**
      * 获取RecyclerView的显示宽度
      */
-    private int getHorizontalSpace()
-    {
+    private int getHorizontalSpace() {
         return getWidth() - getPaddingLeft() - getPaddingRight();
     }
 
     @Override
-    public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state)
-    {
+    public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
         int pendingScrollOffset = mScrollOffset + dy;
         mScrollOffset = Math.min(Math.max(mItemViewHeight, mScrollOffset + dy), mItemCount * mItemViewHeight);
         layoutChild(recycler);
@@ -161,8 +145,7 @@ public class EchelonLayoutManager extends RecyclerView.LayoutManager {
      * 滑动的处理，如果想要RecyclerView滑动的话，就要打开这个开关
      */
     @Override
-    public boolean canScrollVertically()
-    {
+    public boolean canScrollVertically() {
         return true;
     }
 

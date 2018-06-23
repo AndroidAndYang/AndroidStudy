@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.seabig.moduledemo.widget.R;
 
-
 /**
  * @author YJZ
  *         date 2018/5/17

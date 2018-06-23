@@ -1,13 +1,17 @@
 package com.seabig.moduledemo.common.base;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +23,10 @@ import com.seabig.moduledemo.common.util.ActivityContainer;
 import com.seabig.moduledemo.common.util.NetworkUtils;
 import com.seabig.moduledemo.common.util.ToastUtils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * @author YJZ
@@ -34,10 +42,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private int mStatusColor = R.color.status_bar_color;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        if (onSettingFullScreen())
-        {
+    protected void onCreate(Bundle savedInstanceState) {
+        if (onSettingFullScreen()) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
@@ -48,10 +54,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         Window window = getWindow();
         // 判断是否有Toolbar,并将状态栏与标题栏颜色一致
-        if (onSettingFullScreenAndStatusText())
-        {
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2)
-            {
+        if (onSettingFullScreenAndStatusText()) {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2) {
                 //透明状态栏
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 //透明导航栏
@@ -59,8 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ViewGroup contentView = (ViewGroup) findViewById(android.R.id.content);
                 // 状态栏
                 View childAt = contentView.getChildAt(0);
-                if (childAt != null)
-                {
+                if (childAt != null) {
                 /*
                  这里fitsSystemWindows是什么意思呢?相信很多人会有疑问?
                  注意不是设置 ContentView 的 FitsSystemWindows, 而是设置 ContentView 的第一个子 View . 预留出系统 View 的空间.
@@ -74,8 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                     childAt.setFitsSystemWindows(true);
                 }
 
-                if (isSetStatusBarColor())
-                {
+                if (isSetStatusBarColor()) {
                     //给StatusBar着色
                     View view = new View(this);
                     view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight()));
@@ -83,15 +85,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                     contentView.addView(view);
                 }
             }
-        } else
-        {
+        } else {
             // 状态栏与标题栏颜色保持一致，并兼容到Android4.4以下
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                 window.setStatusBarColor(ContextCompat.getColor(this, R.color.main));
-            } else
-            {
+            } else {
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 ViewGroup systemContent = (ViewGroup) findViewById(android.R.id.content);
                 // 添加一个空白的view（StatusBar）
@@ -111,13 +110,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @return 状态栏高度
      */
-    public int getStatusBarHeight()
-    {
+    public int getStatusBarHeight() {
         int statusBarHeight = -1;
         //获取status_bar_height资源的ID
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0)
-        {
+        if (resourceId > 0) {
             //根据资源ID获取响应的尺寸值
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
         }
@@ -127,28 +124,24 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 全屏,但保留状态栏文字
      */
-    protected boolean onSettingFullScreenAndStatusText()
-    {
+    protected boolean onSettingFullScreenAndStatusText() {
         return false;
     }
 
     /**
      * 是否 给顶部状态栏绘制一个空白的view
      */
-    public boolean isSetStatusBarColor()
-    {
+    public boolean isSetStatusBarColor() {
         return true;
     }
 
-    protected void onCreateSet()
-    {
+    protected void onCreateSet() {
     }
 
     /**
      * 是否为全屏显示
      */
-    protected boolean onSettingFullScreen()
-    {
+    protected boolean onSettingFullScreen() {
         return false;
     }
 
@@ -167,8 +160,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 初始化数据
      */
-    protected void onSettingUpData()
-    {
+    protected void onSettingUpData() {
 
     }
 
@@ -177,16 +169,14 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @param msg 提示消息
      */
-    protected void showToast(String msg)
-    {
+    protected void showToast(String msg) {
         ToastUtils.getInstance().showToast(this, msg);
     }
 
     /**
      * 获取网络状态
      */
-    protected boolean isNetConnected()
-    {
+    protected boolean isNetConnected() {
         return NetworkUtils.isConnected(this);
     }
 
@@ -196,8 +186,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param resId color id
      * @return int
      */
-    protected int getColorByResId(@ColorRes int resId)
-    {
+    protected int getColorByResId(@ColorRes int resId) {
         return ContextCompat.getColor(getApplicationContext(), resId);
     }
 
@@ -207,8 +196,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param resId string id
      * @return String
      */
-    protected String getStringByResId(@StringRes int resId)
-    {
+    protected String getStringByResId(@StringRes int resId) {
         return getApplicationContext().getString(resId);
     }
 
@@ -218,8 +206,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param resId drawable id
      * @return drawable
      */
-    protected Drawable getDrawableByResId(@DrawableRes int resId)
-    {
+    protected Drawable getDrawableByResId(@DrawableRes int resId) {
         return ContextCompat.getDrawable(getApplicationContext(), resId);
     }
 
@@ -229,26 +216,59 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param value    显示的值
      * @param defValue 默认显示字符
      */
-    public String getDefValue(String value, String defValue)
-    {
+    public String getDefValue(String value, String defValue) {
         return TextUtils.isEmpty(value) ? defValue : value;
     }
 
-    public int getStatusColor(int mStatusColor)
-    {
+    /**
+     * 获取Raw文件夹下的资源
+     *
+     * @param rawId raw文件夹下的资源id
+     * @return string
+     */
+    public static String getRawString(@NonNull Context context, @RawRes int rawId) throws IOException {
+        InputStream is = context.getResources().openRawResource(rawId);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line).append("\n");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        reader.close();
+        return sb.toString();
+    }
+
+    public int getStatusColor(int mStatusColor) {
         return mStatusColor;
     }
 
+    public void initToolBar(Toolbar toolbar, String title) {
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+            if (!TextUtils.isEmpty(title)) {
+                toolbar.setTitle(title);
+            }
+
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
+    }
+
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         ActivityContainer.getInstance().removeActivity(this);
         onBaseDestroy();
     }
 
-    public void onBaseDestroy()
-    {
+    public void onBaseDestroy() {
 
     }
 }

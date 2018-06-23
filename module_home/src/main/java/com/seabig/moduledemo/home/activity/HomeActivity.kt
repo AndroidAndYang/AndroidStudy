@@ -1,9 +1,5 @@
 package com.seabig.moduledemo.home.activity
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
@@ -14,11 +10,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import com.alibaba.android.arouter.launcher.ARouter
+import com.bumptech.glide.Glide
 import com.seabig.moduledemo.common.base.BaseActivity
-import com.seabig.moduledemo.common.datamgr.AppConstant
+import com.seabig.moduledemo.common.ui.widget.BannerLayout
+import com.seabig.moduledemo.common.util.ActivityUtils
 import com.seabig.moduledemo.common.util.ToastUtils
 import com.seabig.moduledemo.home.R
+import java.util.ArrayList
 
 /**
  * author： YJZ
@@ -34,10 +32,10 @@ class HomeActivity : BaseActivity(), View.OnClickListener, NavigationView.OnNavi
     override fun onSettingUpView() {
 
         val toolbar = findViewById(R.id.toolbar) as Toolbar
-        toolbar.title = "Home"
+        toolbar.title = "AndroidStudy"
         setSupportActionBar(toolbar)
 
-        findViewById(R.id.fab).setOnClickListener(this@HomeActivity)
+        findViewById(R.id.fab).setOnClickListener(this)
 
         // 设置ToolBar左边的Image跟随DrawLayout滚动
         val drawerLayout = findViewById(R.id.drawer_layout) as DrawerLayout
@@ -48,7 +46,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, NavigationView.OnNavi
 
         // 侧滑菜单
         val navigationView = findViewById(R.id.nav_view) as NavigationView
-        navigationView.setNavigationItemSelectedListener(this@HomeActivity)
+        navigationView.setNavigationItemSelectedListener(this)
 
         val view = navigationView.inflateHeaderView(R.layout.home_nav_header_main)
 
@@ -59,6 +57,21 @@ class HomeActivity : BaseActivity(), View.OnClickListener, NavigationView.OnNavi
         val userDesTv = view.findViewById(R.id.des) as TextView
         val des = "good good study,day day up！"
         userDesTv.text = des
+
+        val mBanner = findViewById(R.id.banner) as BannerLayout
+
+        val url = ArrayList<String>()
+        url.add("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3526671419,880179147&fm=27&gp=0.jpg")
+        url.add("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3311055475,689736834&fm=27&gp=0.jpg")
+        url.add("http://img3.imgtn.bdimg.com/it/u=1039587549,3670387024&fm=27&gp=0.jpg")
+        url.add("http://img0.imgtn.bdimg.com/it/u=3544634194,545861522&fm=27&gp=0.jpg")
+        // 轮播图
+        mBanner.setImageLoader { context, path, imageView ->
+            Glide.with(context).load(path).into(imageView) }
+        mBanner.setViewUrls(url)
+        mBanner.setOnBannerItemClickListener {
+            ToastUtils.getInstance().showToast(this, "position = $it")
+        }
     }
 
     override fun onClick(v: View?) {
@@ -85,33 +98,23 @@ class HomeActivity : BaseActivity(), View.OnClickListener, NavigationView.OnNavi
         when (item.itemId) {
 
             R.id.nav_camera -> {
-                ToastUtils.getInstance().showToast(this@HomeActivity, "Camera")
+                ToastUtils.getInstance().showToast(this, "Camera")
             }
 
             R.id.nav_gallery -> {
-                ToastUtils.getInstance().showToast(this@HomeActivity, "Album")
+                ToastUtils.getInstance().showToast(this, "Album")
             }
 
             R.id.nav_scan -> {
-                ToastUtils.getInstance().showToast(this@HomeActivity, "Scan")
+                ToastUtils.getInstance().showToast(this, "Scan")
             }
 
             R.id.nav_tools -> {
-                ToastUtils.getInstance().showToast(this@HomeActivity, "Tools")
+                ToastUtils.getInstance().showToast(this, "Tools")
             }
 
-            R.id.nav_csdn -> {
-                val bundle = Bundle()
-                bundle.putString(AppConstant.WEBVIEW_TITLE, "yangjzhong的博客")
-                bundle.putString(AppConstant.WEBVIEW_URL, "https://blog.csdn.net/weixin_37185329")
-                ARouter.getInstance().build("/common/activity/webView").withBundle("bundle", bundle).navigation()
-            }
-
-            R.id.nav_githup -> {
-                val bundle = Bundle()
-                bundle.putString(AppConstant.WEBVIEW_TITLE, "YangJZhong")
-                bundle.putString(AppConstant.WEBVIEW_URL, "https://github.com/AndroidAndYang")
-                ARouter.getInstance().build("/common/activity/webView").withBundle("bundle", bundle).navigation()
+            R.id.about -> {
+                ActivityUtils.startActivity(this,AboutActivity::class.java)
             }
         }
         // 如果是侧滑栏时打开的则关闭
