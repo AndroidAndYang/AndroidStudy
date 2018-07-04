@@ -7,12 +7,12 @@
       <module fileurl="file://$PROJECT_DIR$/apt-annotation/apt-annotation.iml" filepath="$PROJECT_DIR$/apt-annotation/apt-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/apt-excute/apt-excute.iml" filepath="$PROJECT_DIR$/apt-excute/apt-excute.iml" />
       <module fileurl="file://$PROJECT_DIR$/apt-processor/apt-processor.iml" filepath="$PROJECT_DIR$/apt-processor/apt-processor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib_permission/lib_permission.iml" filepath="$PROJECT_DIR$/lib_permission/lib_permission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base_common/base_common.iml" filepath="$PROJECT_DIR$/base_common/base_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_home/module_home.iml" filepath="$PROJECT_DIR$/module_home/module_home.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_kotlin/module_kotlin.iml" filepath="$PROJECT_DIR$/module_kotlin/module_kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_sys/module_sys.iml" filepath="$PROJECT_DIR$/module_sys/module_sys.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_widget/module_widget.iml" filepath="$PROJECT_DIR$/module_widget/module_widget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permission_common/permission_common.iml" filepath="$PROJECT_DIR$/permission_common/permission_common.iml" />
     </modules>
   </component>
 </project>

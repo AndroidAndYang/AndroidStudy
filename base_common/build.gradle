@@ -49,16 +49,19 @@ dependencies {
     compile rootProject.ext.dependencies["appcompat-v7"]
 
     // GSon
-    compile 'com.google.code.gson:gson:2.7'
+    compile "com.google.code.gson:gson:2.7"
 
     // 网络加载库
-    compile 'com.lzy.net:okgo:3.0.4'
+    compile rootProject.ext.dependencies["okGo"]
 
     // EventBus
-    compile 'org.greenrobot:eventbus:3.0.0'
+    compile rootProject.ext.dependencies["eventbus"]
 
     //RecyclerView
     compile rootProject.ext.dependencies["recyclerview"]
+
+    //CardView
+    compile rootProject.ext.dependencies["cardview"]
 
     // design
     compile rootProject.ext.dependencies["design"]
@@ -73,8 +76,15 @@ dependencies {
 
     //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+
+    //LifeCycles
+    compile "android.arch.lifecycle:runtime:1.0.0"
+    compile "android.arch.lifecycle:extensions:1.0.0"
+
     // apt
     compile project(':apt-annotation')
     compile project(':apt-excute')
-    compile project(':lib_permission')
+
+    // Permission
+    compile project(':permission_common')
 }

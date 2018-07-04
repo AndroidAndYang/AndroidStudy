@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="home_adapter_item_name">
+        <item>硬件通信</item>
+        <item>自定义View</item>
+        <item>网络请求</item>
+    </array>
+
+    <array name="home_adapter_item_des">
+        <item>通过硬件来进行设备通信</item>
+        <item>自定义多种样式的View</item>
+        <item>基于Retrofit+RxJava的网络请求</item>
+    </array>
+
+</resources>

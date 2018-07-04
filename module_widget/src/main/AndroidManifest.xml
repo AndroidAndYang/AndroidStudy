@@ -13,6 +13,8 @@
 
         <activity android:name=".ui.activity.MaterDesignActivity"/>
 
+        <activity android:name=".ui.activity.LifecyclePresenterActivity"/>
+
     </application>
 
 </manifest>

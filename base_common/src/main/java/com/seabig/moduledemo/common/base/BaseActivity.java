@@ -19,7 +19,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.seabig.moduledemo.common.R;
+import com.seabig.moduledemo.common.ui.widget.LoadingLayout;
 import com.seabig.moduledemo.common.util.ActivityContainer;
+import com.seabig.moduledemo.common.util.LoadingLayoutUtil;
 import com.seabig.moduledemo.common.util.NetworkUtils;
 import com.seabig.moduledemo.common.util.ToastUtils;
 
@@ -242,6 +244,36 @@ public abstract class BaseActivity extends AppCompatActivity {
     public int getStatusColor(int mStatusColor) {
         return mStatusColor;
     }
+
+    protected void setViewStatus(LoadingLayout loadingLayout, int status, LoadingLayout.OnReloadListener listener)
+    {
+        switch (status)
+        {
+            case LoadingLayout.NO_NETWORK:
+                LoadingLayoutUtil.setStatusViewOrListener(loadingLayout, LoadingLayout.NO_NETWORK, listener);
+                break;
+
+            case LoadingLayout.LOADING:
+                LoadingLayoutUtil.setStatusViewOrListener(loadingLayout, LoadingLayout.LOADING);
+                break;
+
+            case LoadingLayout.EMPTY:
+                LoadingLayoutUtil.setStatusViewOrListener(loadingLayout, LoadingLayout.EMPTY, listener);
+                break;
+
+            case LoadingLayout.SUCCESS:
+                LoadingLayoutUtil.setStatusViewOrListener(loadingLayout, LoadingLayout.SUCCESS);
+                break;
+
+            case LoadingLayout.ERROR:
+                LoadingLayoutUtil.setStatusViewOrListener(loadingLayout, LoadingLayout.ERROR, listener);
+                break;
+
+            default:
+                break;
+        }
+    }
+
 
     public void initToolBar(Toolbar toolbar, String title) {
         if (toolbar != null) {

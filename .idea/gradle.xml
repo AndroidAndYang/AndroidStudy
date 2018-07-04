@@ -12,12 +12,12 @@
             <option value="$PROJECT_DIR$/apt-annotation" />
             <option value="$PROJECT_DIR$/apt-excute" />
             <option value="$PROJECT_DIR$/apt-processor" />
-            <option value="$PROJECT_DIR$/lib_common" />
-            <option value="$PROJECT_DIR$/lib_permission" />
+            <option value="$PROJECT_DIR$/base_common" />
             <option value="$PROJECT_DIR$/module_home" />
             <option value="$PROJECT_DIR$/module_kotlin" />
             <option value="$PROJECT_DIR$/module_sys" />
             <option value="$PROJECT_DIR$/module_widget" />
+            <option value="$PROJECT_DIR$/permission_common" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

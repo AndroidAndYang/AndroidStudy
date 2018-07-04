@@ -1,17 +1,14 @@
 package com.seabig.moduledemo.widget.ui.activity;
 
-import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.android.library.util.ToastUtils;
 import com.seabig.moduledemo.common.base.BaseActivity;
+import com.seabig.moduledemo.common.util.ActivityUtils;
 import com.seabig.moduledemo.widget.R;
 import com.seabig.moduledemo.widget.adapter.MaterDesginAdapter;
 
@@ -22,22 +19,13 @@ import java.util.ArrayList;
  * date:  2018/6/4
  * des: MD控件使用
  */
+@Route(path = "/widget/activity/mater_design")
+public class MaterDesignActivity extends BaseActivity implements View.OnClickListener {
 
-public class MaterDesignActivity extends BaseActivity {
-
-    private ImageView mImgZhangdan;
-    private TextView mImgZhangdanTxt;
     private View toolbar1;
     private View toolbar2;
-    private ImageView mJiahao;
-    private ImageView mTongxunlu;
-    private ImageView mImgShaomiao;
-    private ImageView mImgFukuang;
-    private ImageView mImgSearch;
-    private ImageView mImgZhaoxiang;
     private AppBarLayout mAppBarLayout;
     private RecyclerView mRv;
-    private CoordinatorLayout mActivityMain;
     private View v_pay_mask;
 
     @Override
@@ -68,48 +56,77 @@ public class MaterDesignActivity extends BaseActivity {
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 int offset = Math.abs(verticalOffset);
                 int total = appBarLayout.getTotalScrollRange();
-                int alphaIn = offset;
-                int alphaOut = (200 - offset) < 0 ? 0 : 200 - offset;
+                // int alphaIn = offset;
+                // int alphaOut = (200 - offset) < 0 ? 0 : 200 - offset;
 
-                int maskColorIn = Color.argb(alphaIn, Color.red(mMaskColor),
-                        Color.green(mMaskColor), Color.blue(mMaskColor));
+                // int maskColorIn = Color.argb(alphaIn, Color.red(mMaskColor),
+                //         Color.green(mMaskColor), Color.blue(mMaskColor));
 
-                int maskColorInDouble = Color.argb(alphaIn, Color.red(mMaskColor),
-                        Color.green(mMaskColor), Color.blue(mMaskColor));
+                // int maskColorInDouble = Color.argb(alphaIn, Color.red(mMaskColor),
+                //         Color.green(mMaskColor), Color.blue(mMaskColor));
 
-                int maskColorOut = Color.argb(alphaOut, Color.red(mMaskColor),
-                        Color.green(mMaskColor), Color.blue(mMaskColor));
+                // int maskColorOut = Color.argb(alphaOut, Color.red(mMaskColor),
+                //         Color.green(mMaskColor), Color.blue(mMaskColor));
 
                 if (offset <= total / 2) {
                     toolbar1.setVisibility(View.VISIBLE);
                     toolbar2.setVisibility(View.GONE);
-                    toolbar1.setBackgroundColor(maskColorInDouble);
+                    // toolbar1.setBackgroundColor(maskColorInDouble);
                 } else {
                     toolbar1.setVisibility(View.GONE);
                     toolbar2.setVisibility(View.VISIBLE);
-                    toolbar2.setBackgroundColor(maskColorOut);
+                    // toolbar2.setBackgroundColor(maskColorOut);
                 }
 
-                v_pay_mask.setBackgroundColor(maskColorIn);
+                // v_pay_mask.setBackgroundColor(maskColorIn);
             }
         });
     }
 
     private void initView() {
-        mActivityMain = (CoordinatorLayout) findViewById(R.id.activity_main);
-        mImgZhangdan = (ImageView) findViewById(R.id.img_zhangdan);
-        mImgZhangdanTxt = (TextView) findViewById(R.id.img_zhangdan_txt);
         toolbar1 = findViewById(R.id.toolbar1);
         toolbar2 = findViewById(R.id.toolbar2);
-        mJiahao = (ImageView) findViewById(R.id.jiahao);
-        mTongxunlu = (ImageView) findViewById(R.id.tongxunlu);
-        mImgShaomiao = (ImageView) findViewById(R.id.img_shaomiao);
-        mImgFukuang = (ImageView) findViewById(R.id.img_fukuang);
-        mImgSearch = (ImageView) findViewById(R.id.img_search);
-        mImgZhaoxiang = (ImageView) findViewById(R.id.img_zhaoxiang);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
         mRv = (RecyclerView) findViewById(R.id.rv);
-        mActivityMain = (CoordinatorLayout) findViewById(R.id.activity_main);
+
+        findViewById(R.id.toolbar1_right).setOnClickListener(this);
+        findViewById(R.id.close_one).setOnClickListener(this);
+        findViewById(R.id.close_two).setOnClickListener(this);
+        findViewById(R.id.close_three).setOnClickListener(this);
+        findViewById(R.id.close_four).setOnClickListener(this);
+
+        findViewById(R.id.open_one).setOnClickListener(this);
+        findViewById(R.id.open_two).setOnClickListener(this);
+        findViewById(R.id.open_three).setOnClickListener(this);
+        findViewById(R.id.open_four).setOnClickListener(this);
+
         v_pay_mask = findViewById(R.id.v_pay_mask);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.close_one) {
+            ToastUtils.getInstance().showToast(this, "close_one");
+        } else if (i == R.id.close_two) {
+            ToastUtils.getInstance().showToast(this, "close_two");
+        } else if (i == R.id.close_three) {
+            ToastUtils.getInstance().showToast(this, "close_three");
+        } else if (i == R.id.close_four) {
+            ToastUtils.getInstance().showToast(this, "close_four");
+        } else if (i == R.id.open_one) {
+            ToastUtils.getInstance().showToast(this, "open_one");
+        } else if (i == R.id.open_two) {
+            ToastUtils.getInstance().showToast(this, "open_two");
+        } else if (i == R.id.open_three) {
+            ToastUtils.getInstance().showToast(this, "open_three");
+        } else if (i == R.id.open_four) {
+            ToastUtils.getInstance().showToast(this, "open_four");
+        } else if (i == R.id.toolbar1_right) {
+            ToastUtils.getInstance().showToast(this, "toolbar_right");
+
+            ActivityUtils.INSTANCE.startActivity(this, LifecyclePresenterActivity.class);
+
+        }
     }
 }

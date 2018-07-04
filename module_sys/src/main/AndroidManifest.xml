@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.seabig.moduledemo.ble" >
+    package="com.seabig.moduledemo.ble">
 
     <!-- 蓝牙 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -18,17 +18,16 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
-        <!-- ble -->
-        <activity android:name="com.seabig.moduledemo.sys.ui.BleActivity"/>
-
-        <!-- usb -->
-        <activity android:name="com.seabig.moduledemo.sys.ui.UsbActivity">
+        <activity
+            android:name="com.seabig.moduledemo.sys.ui.UsbActivity">
 
             <intent-filter>
+
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+
             </intent-filter>
 
             <meta-data
@@ -36,6 +35,8 @@
                 android:resource="@xml/device_filter" />
 
         </activity>
+
+        <activity android:name="com.seabig.moduledemo.sys.ui.BleActivity"/>
 
     </application>
 

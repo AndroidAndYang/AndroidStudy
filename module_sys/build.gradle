@@ -51,6 +51,6 @@ android {
 
 dependencies {
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
-    compile project(':lib_common')
+    compile project(':base_common')
     compile files('libs/usb-serial-for-android.jar')
 }

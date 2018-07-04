@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.seabig.moduledemo.ble.R;
 import com.seabig.moduledemo.sys.adapter.BlueToothDeviceAdapter;
 import com.seabig.moduledemo.common.base.BaseActivity;
@@ -30,7 +31,7 @@ import java.util.UUID;
  * Created by YZJ on 2018/5/21.
  * des: 蓝牙
  */
-
+@Route(path = "/sys/activity/usb")
 public class BleActivity extends BaseActivity implements View.OnClickListener {
 
     private BluetoothAdapter bTAdatper;

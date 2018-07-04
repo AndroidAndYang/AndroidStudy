@@ -71,7 +71,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':lib_common')
+    compile project(':base_common')
     // multidex
     compile rootProject.ext.dependencies["multidex"]
     // 只有是library的情况下才添加
@@ -82,5 +82,5 @@ dependencies {
     }
     // firebase
     compile 'com.google.firebase:firebase-core:10.0.1'
-    annotationProcessor project(':apt-processor')
+//    annotationProcessor project(':apt-processor')
 }

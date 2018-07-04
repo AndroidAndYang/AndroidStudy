@@ -4,10 +4,12 @@
     android:layout_height="100dp"
     android:layout_marginBottom="20dp"
     android:layout_marginTop="20dp"
-    android:background="#0000ff"
+    android:background="@color/main"
     android:orientation="horizontal">
 
-    <RelativeLayout style="@style/widget_width">
+    <RelativeLayout
+        android:id="@+id/open_one"
+        style="@style/widget_width">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -34,7 +36,9 @@
 
     </RelativeLayout>
 
-    <RelativeLayout style="@style/widget_width">
+    <RelativeLayout
+        android:id="@+id/open_two"
+        style="@style/widget_width">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -61,7 +65,9 @@
 
     </RelativeLayout>
 
-    <RelativeLayout style="@style/widget_width">
+    <RelativeLayout
+        android:id="@+id/open_three"
+        style="@style/widget_width">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -88,7 +94,9 @@
 
     </RelativeLayout>
 
-    <RelativeLayout style="@style/widget_width">
+    <RelativeLayout
+        android:id="@+id/open_four"
+        style="@style/widget_width">
 
         <LinearLayout
             android:layout_width="wrap_content"

@@ -41,7 +41,7 @@ import java.util.Locale;
  * date:  2018/6/20
  * des: usb转串口
  */
-@Route(path = "/sys/activity/usb")
+
 public class UsbActivity extends AppCompatActivity implements View.OnClickListener, IAudioListen, SeekBar.OnSeekBarChangeListener {
 
     private UsbManager usbManager;

@@ -8,7 +8,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.activity.WidgetHomeActivity">
+            android:name=".ui.activity.MaterDesignActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,13 +17,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.ARouterActivity"/>
-
         <activity android:name=".ui.activity.ScreenSlideActivity"/>
 
         <activity android:name=".ui.activity.EchelonActivity"/>
 
-        <activity android:name=".ui.activity.MaterDesignActivity"/>
+        <activity android:name=".ui.activity.LifecyclePresenterActivity"/>
 
     </application>
 

@@ -65,9 +65,9 @@ object ActivityUtils {
     }
 
 
-    fun isForeground(activity: Activity): Boolean {
-        return isForeground(activity, activity.javaClass.name)
-    }
+//    fun isForeground(activity: Activity): Boolean {
+//        return isForeground(activity, activity.javaClass.name)
+//    }
 
     /**
      * 判断某个界面是否在前台
@@ -76,17 +76,17 @@ object ActivityUtils {
      * @param className 界面的类名
      * @return 是否在前台显示
      */
-    fun isForeground(context: Context?, className: String): Boolean {
-        if (context == null || TextUtils.isEmpty(className))
-            return false
-        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val list = am.getRunningTasks(1)
-        if (list != null && list.size > 0) {
-            val cpn = list[0].topActivity
-            if (className == cpn.className)
-                return true
-        }
-        return false
-    }
+//    fun isForeground(context: Context?, className: String): Boolean {
+//        if (context == null || TextUtils.isEmpty(className))
+//            return false
+//        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+//        val list = am.getRunningTasks(1)
+//        if (list != null && list.size > 0) {
+//            val cpn = list[0].topActivity
+//            if (className == cpn.className)
+//                return true
+//        }
+//        return false
+//    }
 
 }

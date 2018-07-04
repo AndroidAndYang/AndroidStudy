@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_collapse_mask"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:id="@+id/v_collapse_mask"
-    android:background="#0000ff">
+    android:background="@color/main">
 
     <ImageView
-        android:id="@+id/img_shaomiao"
+        android:id="@+id/close_one"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_text"/>
+        android:src="@drawable/ic_text" />
 
     <ImageView
-        android:id="@+id/img_fukuang"
+        android:id="@+id/close_two"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/img_shaomiao"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_4column"/>
+        android:layout_toRightOf="@+id/close_one"
+        android:src="@drawable/ic_4column" />
 
     <ImageView
-        android:id="@+id/img_search"
+        android:id="@+id/close_three"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/img_fukuang"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_search"/>
+        android:layout_toRightOf="@+id/close_two"
+        android:src="@drawable/ic_search" />
 
     <ImageView
-        android:id="@+id/img_zhaoxiang"
+        android:id="@+id/close_four"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
-        android:src="@drawable/ic_video"/>
+        android:src="@drawable/ic_video" />
 
 </RelativeLayout>

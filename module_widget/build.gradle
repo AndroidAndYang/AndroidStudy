@@ -50,7 +50,8 @@ android {
 
 dependencies {
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
-    compile project(':lib_common')
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+    compile project(':base_common')
     // apt
     compile project(':apt-annotation')
     compile project(':apt-excute')

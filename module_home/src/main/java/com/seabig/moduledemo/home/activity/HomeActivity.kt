@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.seabig.moduledemo.common.base.BaseActivity
 import com.seabig.moduledemo.common.ui.widget.BannerLayout
@@ -22,6 +23,7 @@ import com.seabig.moduledemo.common.util.SystemUtils
 import com.seabig.moduledemo.common.util.ToastUtils
 import com.seabig.moduledemo.home.R
 import com.seabig.moduledemo.home.adapter.HomeAdapter
+import com.seabig.moduledemo.home.bean.HomeBean
 import com.seabig.moduledemo.home.listener.FloatingActionButtonBehaviorListener
 import java.util.ArrayList
 
@@ -85,12 +87,40 @@ class HomeActivity : BaseActivity(), View.OnClickListener, NavigationView.OnNavi
         val recyclerView = findViewById(R.id.recycler_view) as RecyclerView
         recyclerView.addOnScrollListener(FloatingActionButtonBehaviorListener.ForRecyclerView(floatingActionButton))
 
-        val list = ArrayList<String>()
-        for (i in 0..14) {
-            list.add("数字 $i")
+        val list = ArrayList<HomeBean>()
+
+        val imgPathArr: Array<Int> = arrayOf(R.drawable.home_adapter_sys, R.drawable.home_adapter_custom, R.drawable.home_adapter_network)
+        val itemNameArr = resources.getStringArray(R.array.home_adapter_item_name)
+        val itemDesArr = resources.getStringArray(R.array.home_adapter_item_des)
+
+        for (i in imgPathArr.indices) {
+            val homeBean = HomeBean(imgPathArr[i], itemNameArr[i], itemDesArr[i])
+            list.add(homeBean)
         }
+
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = HomeAdapter(R.layout.home_adapter_home, list)
+        val adapter = HomeAdapter(R.layout.home_adapter_home, list)
+        recyclerView.adapter = adapter
+
+        // click item
+        adapter.setOnItemClickListener { _, _, i ->
+            when (i) {
+                0 -> {
+                    ARouter.getInstance().build("/sys/activity/usb").navigation()
+                }
+                1 -> {
+                    ARouter.getInstance().build("/widget/activity/mater_design").navigation()
+                }
+                2 -> {
+                    ToastUtils.getInstance().showToast(this, "待开发完成")
+                }
+            }
+        }
+
+        // click child
+        adapter.setOnItemChildClickListener { _, _, i ->
+            ToastUtils.getInstance().showToast(this, " Child i = $i")
+        }
     }
 
     override fun onClick(v: View?) {
