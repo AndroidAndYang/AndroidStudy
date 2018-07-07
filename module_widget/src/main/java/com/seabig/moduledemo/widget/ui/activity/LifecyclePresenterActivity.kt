@@ -35,7 +35,8 @@ class LifecyclePresenterActivity : BaseActivity(), ILifeCycleContract.View, Load
 
     override fun onSettingUpView() {
         loadingLayout = findViewById(R.id.loading_layout) as LoadingLayout
-        lifecycle.addObserver(LifeCyclePresenter(this))
+        val presenter = LifeCyclePresenter(this)
+        lifecycle.addObserver(presenter)
     }
 
     override fun setData() {

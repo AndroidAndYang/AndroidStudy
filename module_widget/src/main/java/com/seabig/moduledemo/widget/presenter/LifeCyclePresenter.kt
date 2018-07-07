@@ -2,7 +2,6 @@ package com.seabig.moduledemo.widget.presenter
 
 import com.android.library.util.ToastUtils
 import com.seabig.moduledemo.common.base.AbstractMvpPresenter
-import com.seabig.moduledemo.common.callback.ILifeCyclePresenter
 import com.seabig.moduledemo.common.ui.widget.LoadingLayout
 import com.seabig.moduledemo.widget.presenter.contract.ILifeCycleContract
 

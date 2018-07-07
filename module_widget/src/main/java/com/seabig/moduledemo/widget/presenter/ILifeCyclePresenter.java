@@ -1,4 +1,4 @@
-package com.seabig.moduledemo.common.callback;
+package com.seabig.moduledemo.widget.presenter;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;

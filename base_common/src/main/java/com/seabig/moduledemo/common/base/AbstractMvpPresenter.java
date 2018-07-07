@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.seabig.moduledemo.common.callback.ILifeCyclePresenter;
 import com.seabig.moduledemo.common.callback.IMvpBaseView;
 
 /**
