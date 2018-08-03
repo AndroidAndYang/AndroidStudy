@@ -117,7 +117,7 @@ public class MaterDesignActivity extends BaseActivity implements View.OnClickLis
         } else if (i == R.id.open_one) {
             ToastUtils.getInstance().showToast(this, "open_one");
         } else if (i == R.id.open_two) {
-            ToastUtils.getInstance().showToast(this, "open_two");
+            ActivityUtils.INSTANCE.startActivity(this,SeatTableActivity.class);
         } else if (i == R.id.open_three) {
             ToastUtils.getInstance().showToast(this, "open_three");
         } else if (i == R.id.open_four) {

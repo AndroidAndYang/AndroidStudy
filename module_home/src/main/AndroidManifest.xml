@@ -12,6 +12,12 @@
         <activity android:name=".activity.AboutActivity"/>
         <!-- 开发源代码许可 -->
         <activity android:name=".activity.LicenseActivity"/>
+        <!-- 相机功能列表 -->
+        <activity android:name=".activity.camera.CameraHomeActivity"/>
+        <!---->
+        <activity android:name=".activity.camera.CameraActivity" />
+        <!---->
+        <activity android:name=".activity.camera.CaptureActivity" />
 
     </application>
 

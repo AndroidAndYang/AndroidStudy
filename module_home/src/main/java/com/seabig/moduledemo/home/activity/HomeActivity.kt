@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
@@ -22,6 +21,7 @@ import com.seabig.moduledemo.common.util.ActivityUtils
 import com.seabig.moduledemo.common.util.SystemUtils
 import com.seabig.moduledemo.common.util.ToastUtils
 import com.seabig.moduledemo.home.R
+import com.seabig.moduledemo.home.activity.camera.CameraHomeActivity
 import com.seabig.moduledemo.home.adapter.HomeAdapter
 import com.seabig.moduledemo.home.bean.HomeBean
 import com.seabig.moduledemo.home.listener.FloatingActionButtonBehaviorListener
@@ -147,7 +147,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, NavigationView.OnNavi
         when (item.itemId) {
 
             R.id.nav_camera -> {
-                ToastUtils.getInstance().showToast(this, "Camera")
+                ActivityUtils.startActivity(this, CameraHomeActivity::class.java)
             }
 
             R.id.nav_gallery -> {

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.seabig.moduledemo.widget">
+    package="com.seabig.moduledemo.widget">
 
     <application
         android:allowBackup="true"
@@ -7,21 +7,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".ui.activity.MaterDesignActivity">
+        <activity android:name=".ui.activity.MaterDesignActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.ScreenSlideActivity"/>
+        <activity android:name=".ui.activity.ScreenSlideActivity" />
 
-        <activity android:name=".ui.activity.EchelonActivity"/>
+        <activity android:name=".ui.activity.EchelonActivity" />
 
-        <activity android:name=".ui.activity.LifecyclePresenterActivity"/>
+        <activity android:name=".ui.activity.LifecyclePresenterActivity" />
+
+        <activity android:name=".ui.activity.SeatTableActivity" />
 
     </application>
 

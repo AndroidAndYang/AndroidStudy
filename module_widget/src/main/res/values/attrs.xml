@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 修改进度的进度条 -->
+    <!-- 帶进度文字的进度条 -->
     <declare-styleable name="NumberProgressBar">
         <attr name="progress_current" format="integer"/>
         <attr name="progress_max" format="integer"/>
@@ -18,4 +18,13 @@
         </attr>
     </declare-styleable>
 
+    <!-- 电影选座 -->
+    <declare-styleable name="SeatTableView">
+        <attr name="seat_checked" format="reference" />
+        <attr name="seat_sold" format="reference" />
+        <attr name="seat_available" format="reference" />
+        <attr name="overview_checked" format="color" />
+        <attr name="overview_sold" format="color" />
+        <attr name="txt_color" format="color"/>
+    </declare-styleable>
 </resources>

@@ -7,23 +7,23 @@
 
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/navigation_item_camera"
+            android:icon="@drawable/home_draw_navigation_item_camera"
             android:title="@string/camera" />
 
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/navigation_item_album"
+            android:icon="@drawable/home_draw_navigation_item_album"
             android:title="@string/album" />
 
 
         <item
             android:id="@+id/nav_tools"
-            android:icon="@drawable/navigation_item_tools"
+            android:icon="@drawable/home_draw_navigation_item_tools"
             android:title="Tools" />
 
         <item
             android:id="@+id/nav_scan"
-            android:icon="@drawable/navigation_item_scan"
+            android:icon="@drawable/home_draw_navigation_item_scan"
             android:title="@string/scan" />
 
     </group>
@@ -33,7 +33,7 @@
         <menu>
             <item
                 android:id="@+id/about"
-                android:icon="@drawable/navigation_item_about"
+                android:icon="@drawable/home_draw_navigation_item_about"
                 android:title="@string/about" />
         </menu>
 

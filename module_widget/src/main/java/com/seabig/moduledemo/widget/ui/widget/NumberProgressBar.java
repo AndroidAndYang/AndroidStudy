@@ -16,7 +16,7 @@ import com.seabig.moduledemo.widget.R;
 /**
  * author： YJZ
  * date:  2018/6/27
- * des:
+ * des: 带数字的进度条
  */
 
 public class NumberProgressBar extends View {

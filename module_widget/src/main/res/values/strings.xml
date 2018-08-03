@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">module_widget</string>
-    <string name="fiex_head_one">功能一</string>
-    <string name="fiex_head_two">功能二</string>
-    <string name="fiex_head_three">功能三</string>
-    <string name="fiex_head_four">功能四</string>
+    <string name="fiex_head_one">扫一扫</string>
+    <string name="fiex_head_two">选  座</string>
+    <string name="fiex_head_three">消  息</string>
+    <string name="fiex_head_four">购物车</string>
 </resources>

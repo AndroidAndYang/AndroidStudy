@@ -38,7 +38,8 @@ public class MediaRecorderUtil {
     public static int MAX_VOLUME = 50;
 
     public MediaRecorderUtil() {
-        mFileRec = FileUtil.createFile("test.amr");
+        // TODO 创建文件
+         // mFileRec = FileUtil.createFile("test.amr");
     }
 
     private IAudioListen listen;

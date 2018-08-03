@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.seabig.moduledemo.home">
+    package="com.seabig.moduledemo.home">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="com.seabig.moduledemo.home.OneApplication"
@@ -8,20 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
-        <activity
-            android:name=".activity.HomeActivity">
+        <activity android:name=".activity.HomeActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <!-- 关于 -->
-        <activity android:name=".activity.AboutActivity"/>
+        <activity android:name=".activity.AboutActivity" />
         <!-- 开发源代码许可 -->
-        <activity android:name=".activity.LicenseActivity"/>
+        <activity android:name=".activity.LicenseActivity" />
+        <!-- 相机功能列表 -->
+        <activity android:name=".activity.camera.CameraHomeActivity" />
+        <activity android:name=".activity.camera.CameraActivity" />
+        <activity android:name=".activity.camera.CaptureActivity" />
+
     </application>
 
 </manifest>
