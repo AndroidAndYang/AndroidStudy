@@ -1,12 +1,10 @@
 package com.seabig.moduledemo.widget.ui.activity;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-
+import com.seabig.moduledemo.common.base.BaseActivity;
 import com.seabig.moduledemo.widget.R;
 import com.seabig.moduledemo.widget.ui.widget.SeatTable;
 
+import android.support.v7.widget.Toolbar;
 
 /**
  * author： YJZ
@@ -14,13 +12,17 @@ import com.seabig.moduledemo.widget.ui.widget.SeatTable;
  * des: 电影选座
  */
 
-public class SeatTableActivity extends AppCompatActivity {
+public class SeatTableActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int onSettingUpContentViewResourceID() {
+        return R.layout.widget_activity_seat_table;
+    }
 
-        setContentView(R.layout.widget_activity_seat_table);
+    @Override
+    protected void onSettingUpView() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        initToolBar(toolbar, getStringByResId(R.string.fiex_head_two));
 
         SeatTable seatTableView = (SeatTable) findViewById(R.id.seat_table);
         seatTableView.setScreenName("8号厅荧幕");//设置屏幕名称

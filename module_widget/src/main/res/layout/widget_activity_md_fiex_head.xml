@@ -21,14 +21,14 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_scanning" />
+                android:src="@drawable/widget_pie" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:text="@string/fiex_head_one"
+                android:text="@string/widget_pie"
                 android:textColor="#ffffff"
                 android:textSize="16sp" />
 

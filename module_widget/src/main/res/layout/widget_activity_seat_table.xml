@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/common_lib_toolbar" />
+
     <com.seabig.moduledemo.widget.ui.widget.SeatTable
         android:id="@+id/seat_table"
         android:layout_width="wrap_content"

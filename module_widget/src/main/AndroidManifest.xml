@@ -17,6 +17,8 @@
 
         <activity android:name=".ui.activity.SeatTableActivity"/>
 
+        <activity android:name=".ui.activity.PieActivity"/>
+
     </application>
 
 </manifest>

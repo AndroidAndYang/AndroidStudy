@@ -115,7 +115,7 @@ public class MaterDesignActivity extends BaseActivity implements View.OnClickLis
         } else if (i == R.id.close_four) {
             ToastUtils.getInstance().showToast(this, "close_four");
         } else if (i == R.id.open_one) {
-            ToastUtils.getInstance().showToast(this, "open_one");
+            ActivityUtils.INSTANCE.startActivity(this,PieActivity.class);
         } else if (i == R.id.open_two) {
             ActivityUtils.INSTANCE.startActivity(this,SeatTableActivity.class);
         } else if (i == R.id.open_three) {
@@ -123,10 +123,7 @@ public class MaterDesignActivity extends BaseActivity implements View.OnClickLis
         } else if (i == R.id.open_four) {
             ToastUtils.getInstance().showToast(this, "open_four");
         } else if (i == R.id.toolbar1_right) {
-            ToastUtils.getInstance().showToast(this, "toolbar_right");
-
             ActivityUtils.INSTANCE.startActivity(this, LifecyclePresenterActivity.class);
-
         }
     }
 }
